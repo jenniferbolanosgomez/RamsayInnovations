@@ -1,0 +1,46 @@
+<h3> {{ accion }}  Student</h3>
+<div class="spinner-border text-primary" role="status" *ngIf="loading">
+    <span class="sr-only">Loading...</span>
+  </div>
+<form [formGroup] = "students" (ngSubmit)="saveStudent()">
+    <div class="form-group row">
+        <label class="control-label col md-12">Username</label>
+        <div class="col-md-12">
+           <input type="text" class="form-control" formControlName="username">
+        </div>
+        <span class="text-danger ml-3" *ngIf="students.get('username').hasError('required') && students.get('username').touched">
+             Este campo es requerido</span>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col md-12">First Name</label>
+        <div class="col-md-12">
+           <input type="text" class="form-control" formControlName="firstname">
+        </div>
+        <span class="text-danger ml-3" *ngIf="students.get('firstname').hasError('required') && students.get('firstname').touched"> Este campo es requerido</span>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col md-12">Lastname</label>
+        <div class="col-md-12">
+           <input type="text" class="form-control" formControlName="lastname">
+        </div>
+        <span class="text-danger ml-3" *ngIf="students.get('lastname').hasError('required') && students.get('lastname').touched"> Este campo es requerido</span>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col md-12">Age</label>
+        <div class="col-md-12">
+           <input type="number" name="quantity" min="1" max="2" class="form-control" formControlName="age">
+        </div>
+        <span class="text-danger ml-3" *ngIf="students.get('age').hasError('required') && students.get('age').touched"> Este campo es requerido</span>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col md-12">Career</label>
+        <div class="col-md-12">
+           <input type="text" class="form-control" formControlName="career">
+        </div>
+        <span class="text-danger ml-3" *ngIf="students.get('career').hasError('required') && students.get('career').touched"> Este campo es requerido</span>
+    </div>
+<div class="form-group">
+    <button class="btn btn-success float-right" [disabled] = "students.invalid">Accept</button>
+    <button [routerLink] ="['/']" class="btn btn-secondary float-left">Cancel</button>
+</div>
+</form>

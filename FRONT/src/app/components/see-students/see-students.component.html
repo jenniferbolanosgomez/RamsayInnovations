@@ -1,0 +1,18 @@
+<div class="spinner-border text-primary" role="status" *ngIf="loading">
+  <span class="sr-only">Loading...</span>
+</div>
+
+<div>
+  
+  <h3><span>Username: </span> {{student.username}} </h3>
+  <h5><span>Career: </span>{{student.career}}</h5>
+
+  <ul>
+    <li><span>First Name: </span>{{student.firstname}}</li>
+    <li><span>Lastname: </span>{{student.lastname}}</li>
+    <li><span>Age: </span>{{student.age}}</li>
+   
+  </ul>
+
+</div>
+<button [routerLink] ="['/']" class="btn btn-secondary float-left">Go Back</button>
